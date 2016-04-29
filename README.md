@@ -1,5 +1,8 @@
-# AWS Code Deploy Executer
+# AWS Code Deploy Executer (Wercker step version)
 
+## Forked from https://github.com/techpivot/aws-code-deploy
+
+[![wercker status](https://app.wercker.com/status/960bc755ca6fb0cf9f296e4b97d6da5c/s/master "wercker status")](https://app.wercker.com/project/bykey/960bc755ca6fb0cf9f296e4b97d6da5c)
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/techpivot/phalcon-ci-installer/master/LICENSE)
 
 
