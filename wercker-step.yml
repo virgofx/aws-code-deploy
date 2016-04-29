@@ -1,0 +1,62 @@
+name: aws-code-deploy
+version: 0.1.0
+description: |
+  Deploys code via AWS CodeDeploy
+keywords:
+  - aws
+  - codedeploy
+package-exclude:
+  - wercker.yml
+properties:
+    key:
+        type: string
+        required: true
+    secret:
+        type: string
+        required: true
+    application-name:
+        type: string
+        required: true
+    s3-bucket:
+        type: string
+        required: true
+    region:
+        type: string
+        required: false
+        default: us-east-1
+    deployment-config-name:
+        type: string
+        required: false
+    minimum-healthy-hosts:
+        type: int
+        required: false
+    service-role-arn:
+        type: string
+        required: false
+    auto-scaling-groups:
+        type: string
+        required: false
+    deployment-group-name:
+        type: string
+        required: false
+    revision-description:
+        type: string
+        required: false
+    deployment-description:
+        type: string
+        required: false
+    s3-key-prefix:
+        type: string
+        required: false
+    s3-filename:
+        type: string
+        required: false
+    s3-use-sse:
+        type: string
+        required: false
+        default: true
+    s3-limit-bucket-files:
+        type: int
+        required: false
+        default: 10
+

@@ -1,12 +1,29 @@
 # AWS Code Deploy Executer
 
-[![Latest Version](https://img.shields.io/packagist/v/techpivot/aws-code-deploy.svg?style=flat-square)](https://packagist.org/packages/techpivot/aws-code-deploy)
-[![Total Downloads](https://img.shields.io/packagist/dt/techpivot/aws-code-deploy.svg?style=flat-square)](https://packagist.org/packages/techpivot/aws-code-deploy)
 [![Software License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/techpivot/phalcon-ci-installer/master/LICENSE)
 
 
 This script deploys applications with the [AWS Code Deploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) service. This script has been adapted to be easily portable and configurable via environment variables such that it can be incorporated within CI services that do not natively include support for Code Deploy. Additionally, this script includes additional functionality described below that is typically not included in out-of-box Code Deploy CI systems. For more information, refer to the [AWS Code Deploy](http://docs.aws.amazon.com/codedeploy/latest/userguide/welcome.html) documentation or
 the [AWS CLI API](http://docs.aws.amazon.com/cli/latest/reference/deploy/index.html).
+
+#### Fork notes:
+
+This fork has files added to it to make it suitable for running as a step for wercker.com.
+To use this on Wercker, add a step like so:
+
+    - maestrohealthcaretechnologies/aws-code-deploy:
+        application-name: my-codedeploy-app
+	s3-bucket: my-s3-bucket
+	deployment-group-name: $WERCKER_DEPLOYTARGET_NAME
+	code-deploy-region: us-east-1
+	s3-key-prefix: $WERCKER_GIT_REPOSITORY/$WERCKER_DEPLOYTARGET_NAME
+	s3-sse: true
+	s3-filename: $WERCKER_DEPLOY_ID.zip
+	app-source: $WERCKER_ROOT
+	revision-description: Git commit $WERCKER_GIT_COMMIT
+	deployment-description: Deployed by Wercker on $(date)
+
+Each parameter corresponds to the environment variable described below, without the "AWS_CODE_DEPLOY" prefix; the other parameters described below can also be used in a similar manner. Only the first two options are required; the rest will default to values based on Wercker environment variables, as shown above.
 
 #### Features:
  * Compression of source contents
